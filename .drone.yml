@@ -1,0 +1,17 @@
+kind: pipeline
+name: linux-amd64
+
+platform:
+    os: linux
+    arch: amd64
+
+steps:
+- name: Check Syntax
+  image: rsmmr/clang:8.0
+  commands:
+  - ./check_clang_format.sh
+
+- name: Build Noplang
+  image: chanbakjsd/antlr4-cpp:4.7.2
+  commands:
+  - ./build.sh 
