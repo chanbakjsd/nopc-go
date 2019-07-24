@@ -10,8 +10,8 @@ importStatement
 ;
 
 let
-: LET letVariableDefinition type? EQUAL statement
-| LET LPAREN (letVariableDefinition type? COMMA)+ letVariableDefinition type? RPAREN EQUAL statement
+: LET letVariableDefinition typeIdentifier? EQUAL statement
+| LET LPAREN (letVariableDefinition typeIdentifier? COMMA)+ letVariableDefinition typeIdentifier? RPAREN EQUAL statement
 ;
 
 letVariableDefinition: PUB? MUT? STATIC? IDENTIFIER;
@@ -24,7 +24,7 @@ constant
 functionHeader: FN IDENTIFIER LPAREN ((functionParameter COMMA)* functionParameter)? RPAREN IDENTIFIER?;
 function: functionHeader LCURLY operation* RCURLY;
 functionParameter
-: (IDENTIFIER COMMA)* IDENTIFIER type //x, y, z i32
+: (IDENTIFIER COMMA)* IDENTIFIER typeIdentifier //x, y, z i32
 | STAR MUT? SELF
 ;
 
@@ -68,8 +68,8 @@ literal
 ;
 
 arrayInitializer
-: LBRACKET NUMBER RBRACKET type
-| LBRACKET NUMBER? RBRACKET type LCURLY (statement COMMA)* statement RCURLY
+: LBRACKET NUMBER RBRACKET typeIdentifier
+| LBRACKET NUMBER? RBRACKET typeIdentifier LCURLY (statement COMMA)* statement RCURLY
 ;
 
 objectInitializer: IDENTIFIER LCURLY ((statement COMMA)* statement)? RCURLY;
@@ -79,19 +79,19 @@ property: (STAR* SELF (DOT | RARROW))? (STAR* IDENTIFIER (DOT | RARROW))* STAR* 
 functionCall: property LPAREN ((statement COMMA)* statement)? RPAREN;
 
 structDecl: PUB? STRUCT IDENTIFIER LCURLY (structVar COMMA)* structVar RCURLY;
-structVar: PUB? (IDENTIFIER COMMA)* IDENTIFIER type;
+structVar: PUB? (IDENTIFIER COMMA)* IDENTIFIER typeIdentifier;
 
 impl: IMPL IDENTIFIER (FOR IDENTIFIER)? LCURLY function* RCURLY;
 trait: TRAIT IDENTIFIER LCURLY functionHeader* functionHeader RCURLY;
 
-type
+typeIdentifier
 : MUT constantType
 | constantType
 ;
 constantType
-: STAR type
-| LBRACKET RBRACKET type
-| IDENTIFIER (LESSERTHAN type GREATERTHAN)?
+: STAR typeIdentifier
+| LBRACKET RBRACKET typeIdentifier
+| IDENTIFIER (LESSERTHAN typeIdentifier GREATERTHAN)?
 ;
 
 /** LEXER LOGIC */
