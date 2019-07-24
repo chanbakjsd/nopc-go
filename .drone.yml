@@ -7,11 +7,11 @@ platform:
 
 steps:
 - name: Check Syntax
-  image: rsmmr/clang:8.0
+  image: chanbakjsd/antlr4-go:4.7.2
   commands:
-  - ./check_clang_format.sh
+  - ./check_go_format.sh
 
 - name: Build Noplang
-  image: chanbakjsd/antlr4-cpp:4.7.2
+  image: chanbakjsd/antlr4-go:4.7.2
   commands:
   - ./build.sh 
