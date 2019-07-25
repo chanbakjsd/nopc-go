@@ -9,6 +9,6 @@ else
 	exit 1
 fi
 
-if ! go build -o bin/nopc src/main.go; then
+if ! go build -o bin/nopc ./src/; then
     echo "Error has occurred"
 fi
