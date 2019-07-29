@@ -1,13 +1,13 @@
 package main
 
 import (
-	"./flags"
 	"flag"
 	"fmt"
 	"os"
 	"strings"
 
-	"github.com/antlr/antlr4/runtime/Go/antlr"
+	"github.com/noplang/nopc-go/ast"
+	"github.com/noplang/nopc-go/flags"
 )
 
 func main() {
@@ -16,18 +16,7 @@ func main() {
 		panic("REPL has not been implemented yet.")
 	}
 
-	parsedTree := make([]antlr.Tree, len(files))
-	encounteredError := false
-	for i := 0; i < len(files); i++ {
-		flags.DebugPrint(files[i] + ": processing")
-		parsedTree[i] = parseFile(files[i])
-		if parsedTree[i] == nil {
-			encounteredError = true
-			flags.DebugPrint(files[i] + ": process failed, proceeding to other files")
-		} else {
-			flags.DebugPrint(files[i] + ": processed")
-		}
-	}
+	parsedTree, encounteredError := parseFiles(files)
 	if encounteredError {
 		fmt.Println("Error(s) have occurred while processing source files.")
 		os.Exit(1)
@@ -36,4 +25,13 @@ func main() {
 		flags.OutputLocation = strings.TrimSuffix(files[0], ".nop")
 	}
 	flags.DebugPrint("Output file location: " + flags.OutputLocation)
+	astTree := generateAST(parsedTree)
+	if flags.EmitAST {
+		for _, v := range astTree {
+			ast.PrettyPrintASTToFile(v)
+		}
+		fmt.Println("AST files can be found with their source (.ast)")
+		return
+	}
+	fmt.Println("Nop compiled successfully.")
 }

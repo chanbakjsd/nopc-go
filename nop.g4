@@ -21,7 +21,7 @@ constant
 | CONST LPAREN (PUB? IDENTIFIER COMMA)+ PUB? IDENTIFIER RPAREN EQUAL statement
 ;
 
-functionHeader: FN IDENTIFIER LPAREN ((functionParameter COMMA)* functionParameter)? RPAREN IDENTIFIER?;
+functionHeader: FN IDENTIFIER LPAREN ((functionParameter COMMA)* functionParameter)? RPAREN constantType?;
 function: functionHeader LCURLY operation* RCURLY;
 functionParameter
 : (IDENTIFIER COMMA)* IDENTIFIER typeIdentifier //x, y, z i32
@@ -37,26 +37,30 @@ operation
 | statement
 ;
 
-assign: property (PLUS | MINUS | STAR | SLASH | PERCENT)? EQUAL statement;
+assign: statement (PLUS | MINUS | STAR | SLASH | PERCENT)? EQUAL statement;
 returnStatement: RETURN statement;
-ifStatement: IF statement LCURLY operation* RCURLY (ELSE LCURLY operation* RCURLY)?;
-matchStatement: MATCH statement LCURLY (statement RARROW ((LCURLY operation* RCURLY) | operation))+ RCURLY;
+ifStatement: IF statement LCURLY operation* RCURLY elseStatement?;
+elseStatement: ELSE LCURLY operation* RCURLY;
+matchStatement: MATCH statement LCURLY matchCandidate+ RCURLY;
+matchCandidate: statement RARROW ((LCURLY operation* RCURLY) | operation);
 
 statement
 : LPAREN statement RPAREN
+| literal
+| IDENTIFIER
+| STAR statement
+| SELF
+| statement (DOT | RARROW) statement
+| statement LPAREN (statement (COMMA statement)*)? RPAREN
 | statement EQUAL EQUAL statement
 | statement EXCLAMATION EQUAL statement
 | statement LESSERTHAN (EQUAL)? statement
 | statement GREATERTHAN (EQUAL)? statement
-| functionCall
 | statement (STAR | SLASH | PERCENT) statement
 | statement (PLUS | MINUS) statement
-| SELF
-| literal
+| statement LBRACKET statement RBRACKET
 | arrayInitializer
 | objectInitializer
-| arrayAccessor
-| property
 ;
 
 literal
@@ -72,16 +76,12 @@ arrayInitializer
 | LBRACKET NUMBER? RBRACKET typeIdentifier LCURLY (statement COMMA)* statement RCURLY
 ;
 
-objectInitializer: IDENTIFIER LCURLY ((statement COMMA)* statement)? RCURLY;
-
-arrayAccessor: property LBRACKET statement RBRACKET;
-property: (STAR* SELF (DOT | RARROW))? (STAR* IDENTIFIER (DOT | RARROW))* STAR* IDENTIFIER;
-functionCall: property LPAREN ((statement COMMA)* statement)? RPAREN;
+objectInitializer: constantType LCURLY ((statement COMMA)* statement)? RCURLY;
 
 structDecl: PUB? STRUCT IDENTIFIER LCURLY (structVar COMMA)* structVar RCURLY;
 structVar: PUB? (IDENTIFIER COMMA)* IDENTIFIER typeIdentifier;
 
-impl: IMPL IDENTIFIER (FOR IDENTIFIER)? LCURLY function* RCURLY;
+impl: IMPL IDENTIFIER (FOR typeIdentifier)? LCURLY function* RCURLY;
 trait: TRAIT IDENTIFIER LCURLY functionHeader* functionHeader RCURLY;
 
 typeIdentifier
