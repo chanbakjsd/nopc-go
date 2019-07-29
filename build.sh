@@ -9,6 +9,7 @@ else
 	exit 1
 fi
 
-if ! go build -o bin/nopc ./src/; then
+cd src
+if ! go build -o ../bin/nopc .; then
     echo "Error has occurred"
 fi
