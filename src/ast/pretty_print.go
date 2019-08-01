@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+//PrettyPrintAST : A function that prints a given parsed AST and serializes it into somewhat readable JSON format.
 func PrettyPrintAST(n NopFile) string {
 	s, err := json.MarshalIndent(n, "", "\t")
 	if err != nil {
@@ -15,6 +16,7 @@ func PrettyPrintAST(n NopFile) string {
 	return string(s)
 }
 
+//PrettyPrintASTToFile : A utility function that calls PrettyPrintAST() and saves the resulting string in a file.
 func PrettyPrintASTToFile(n NopFile) {
 	result := PrettyPrintAST(n)
 	file, err := os.Create(n.Source + ".ast")
@@ -32,6 +34,7 @@ func PrettyPrintASTToFile(n NopFile) {
 	w.Flush()
 }
 
+//String : A function that allows operation type to be displayed in its actual enum name instead of the underlying value.
 func (o OperationType) String() string {
 	switch o {
 	case VariableDeclaration:
@@ -50,10 +53,13 @@ func (o OperationType) String() string {
 		return "[OperationType " + strconv.Itoa(int(o)) + "]"
 	}
 }
+
+//MarshalJSON : A function that takes the enum name of an operation type and turns it into the format Go's JSON library need.
 func (o OperationType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(o.String())
 }
 
+//String : A function that allows statement types to be displayed in its actual enum name instead of the underlying value.
 func (s StatementType) String() string {
 	switch s {
 	case Equal:
@@ -106,6 +112,8 @@ func (s StatementType) String() string {
 		return "[StatementType " + strconv.Itoa(int(s)) + "]"
 	}
 }
+
+//MarshalJSON : A function that takes the enum name of a statement type and turns it into the format Go's JSON library need.
 func (s StatementType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(s.String())
 }

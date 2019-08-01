@@ -9,12 +9,14 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
+//NopListener : An implementation of Antlr 4's listener interface with the aim of converting the parse tree from Antlr (which calls the exported listening functions) to the abstract syntax tree that the compiler is designed around.
 type NopListener struct {
 	*parser.BasenopListener
 
 	stack stack
 }
 
+//NewNopListener : A function that creates an instance of NopListener with everything initialized to prevent null pointers.
 func NewNopListener() *NopListener {
 	return &NopListener{
 		BasenopListener: &parser.BasenopListener{},
@@ -22,6 +24,8 @@ func NewNopListener() *NopListener {
 	}
 }
 
+//Walk : A wrapper that takes in the Antlr parse tree and request Antlr to walk through the tree and call the listener.
+//This function contains a simple panic "recovery" module (which prints out some helpful debug information and rethrow the panic).
 func (n *NopListener) Walk(tree antlr.ParseTree) NopFile {
 	defer func() {
 		if r := recover(); r != nil {
@@ -38,6 +42,9 @@ func (n *NopListener) Walk(tree antlr.ParseTree) NopFile {
 	return n.stack.Pop().(NopFile)
 }
 
+//ExitNop_file : A function that is intended to be called by Antlr when it finishes parsing the file.
+//(Nop_file is the outermost node)
+//Functionality: This function pops every single top-level declaration and put it into the AST properly.
 func (n *NopListener) ExitNop_file(ctx *parser.Nop_fileContext) {
 	nopFile := NopFile{}
 
@@ -78,10 +85,16 @@ func (n *NopListener) ExitNop_file(ctx *parser.Nop_fileContext) {
 	n.stack.Push(nopFile)
 }
 
+//ExitCompiler_pragma : A function that is intended to be called by Antlr when it encounters a compiler pragma.
+//These pragmas start with the character `#` and tells the compiler what to do with the file.
+//An example of pragma is `#no_std` which disables compilation of standard library with the file.
 func (n *NopListener) ExitCompiler_pragma(ctx *parser.Compiler_pragmaContext) {
 	n.stack.Push(ctx.PRAGMA().GetText())
 }
 
+//ExitImportStatement :  A function that is intended to be called by Antlr when it encounters an import statement.
+//It's worth noting that there could only be ONE import statement in any given file (formatted import or a single liner).
+//An example is `import "std"`.
 func (n *NopListener) ExitImportStatement(ctx *parser.ImportStatementContext) {
 	statements := ctx.AllIDENTIFIER()
 	statementCount := len(statements)
@@ -99,6 +112,10 @@ type letVariableDecl struct {
 	Name    string
 }
 
+//ExitLet :  A function that is intended to be called by Antlr when it encounters a let statement.
+//This function pops out all the let variable declaration (struct name letVariableDecl) and their associated types.
+//It then tries to figure out as much as possible about its type from syntax and pushes a let statement into the stack
+//where it can be popped by either the global scope (ExitNop_file) or a function scope (let operation).
 func (n *NopListener) ExitLet(ctx *parser.LetContext) {
 	statement := n.stack.Pop().(Statement)
 	letVariableCount := len(ctx.AllLetVariableDefinition())
@@ -142,6 +159,12 @@ func (n *NopListener) ExitLet(ctx *parser.LetContext) {
 	})
 }
 
+//ExitLetVariableDefinition :  A function that is intended to be called by Antlr when it encounters a let variable definition.
+//This function reads the declaration of a variable (`pub mut someVariable`) and pushes its content onto the stack where it is
+//consumed by ExitLet().
+//The incentive for creating two functions instead of putting everything in ExitLet() is that Antlr's API doesn't allow inferring
+//where the token is located. It is therefore needed to be separated into multiple functions to figure out if `pub` is applied to
+//which variable.
 func (n *NopListener) ExitLetVariableDefinition(ctx *parser.LetVariableDefinitionContext) {
 	n.stack.Push(letVariableDecl{
 		Public:  ctx.PUB() != nil,
@@ -151,6 +174,10 @@ func (n *NopListener) ExitLetVariableDefinition(ctx *parser.LetVariableDefinitio
 	})
 }
 
+//ExitConstant : A function that is intended to be called by Antlr when it encounters a constant declaration.
+//These are variable declarations that are only initialized once (maybe lazily if the compiler deems appropriate) and cannot be
+//changed. This allows a compile time assertion such that it will never be modified.
+//It is a compile error to attempt to assign something to a constant variable.
 func (n *NopListener) ExitConstant(ctx *parser.ConstantContext) {
 	id := ctx.AllIDENTIFIER()
 	targets := make([]Variable, len(id))
@@ -172,6 +199,9 @@ func (n *NopListener) ExitConstant(ctx *parser.ConstantContext) {
 	})
 }
 
+//ExitFunctionHeader : A function that is intended to be called by Antlr when it encounters a function header.
+//This could happen when it's a top-level function declaration, an implementation or as a trait.
+//All function parameters and return value are typed here to allow for type-checking in the next phase of compilation.
 func (n *NopListener) ExitFunctionHeader(ctx *parser.FunctionHeaderContext) {
 	var functionReturnType VariableType
 	if ctx.ConstantType() != nil {
@@ -193,6 +223,9 @@ func (n *NopListener) ExitFunctionHeader(ctx *parser.FunctionHeaderContext) {
 	})
 }
 
+//ExitFunction : A function that is intended to be called by Antlr when it encounters a function.
+//This function will always be called after ExitFunctionHeader() and all the operations inside the function.
+//This function simply retrieves the function header and push it back with the actual implementation (operations).
 func (n *NopListener) ExitFunction(ctx *parser.FunctionContext) {
 	operationCount := len(ctx.AllOperation())
 	operations := make([]Operation, operationCount)
@@ -205,6 +238,9 @@ func (n *NopListener) ExitFunction(ctx *parser.FunctionContext) {
 	n.stack.Push(header)
 }
 
+//ExitFunctionParameter : A function that is intended to be called by Antlr when it encounters a function parameter.
+//This function is a part of ExitFunctionHeader() and is separated into multiple functions instead of aggregated with it
+//to allow keyword matching to be possible as Antlr does not allow inferring token location.
 func (n *NopListener) ExitFunctionParameter(ctx *parser.FunctionParameterContext) {
 	if ctx.SELF() != nil {
 		n.stack.Push(FunctionParameter{
@@ -230,6 +266,9 @@ func (n *NopListener) ExitFunctionParameter(ctx *parser.FunctionParameterContext
 	n.stack.Push(len(identifiers))
 }
 
+//ExitOperation : A function that is intended to be called by Antlr when it encounters an operation.
+//This function is called to generalize the possible operations into one Operation object which will be appended in the function
+//declaration.
 func (n *NopListener) ExitOperation(ctx *parser.OperationContext) {
 	var operation interface{}
 	var operationID OperationType
@@ -256,6 +295,9 @@ func (n *NopListener) ExitOperation(ctx *parser.OperationContext) {
 	})
 }
 
+//ExitAssign : A function that is intended to be called by Antlr when it encounters an assign operation.
+//This function figures out what's on the left hand side and the right hand side, apply the appropriate modifier (`+=` for example)
+//and pushes it as an operation into the stack.
 func (n *NopListener) ExitAssign(ctx *parser.AssignContext) {
 	statement := n.stack.Pop().(Statement)
 	target := n.stack.Pop().(Statement)
@@ -286,10 +328,17 @@ func (n *NopListener) ExitAssign(ctx *parser.AssignContext) {
 	})
 }
 
+//ExitReturnStatement : A function that is intended to be called by Antlr when it encounters a return statement.
+//This function simply wraps the existing statement in an return operation so the AST shows that it is an actual return result
+//and not just a evaluated and thrown away value (Like function call).
 func (n *NopListener) ExitReturnStatement(ctx *parser.ReturnStatementContext) {
 	n.stack.Push(ReturnOperation(n.stack.Pop().(Statement)))
 }
 
+//ExitIfStatement : A function that is intended to be called by Antlr when it encounters an if statement.
+//This function wraps the if block and else block into a list of operations (similar to like how functions are a list of
+//operation).
+//These wrapped blocks are placed together with the condition to form the actual if statement.
 func (n *NopListener) ExitIfStatement(ctx *parser.IfStatementContext) {
 	elseBlock := make([]Operation, 0)
 	if ctx.ElseStatement() != nil {
@@ -310,6 +359,9 @@ func (n *NopListener) ExitIfStatement(ctx *parser.IfStatementContext) {
 	})
 }
 
+//ExitElseStatement : A function that is intended to be called by Antlr when it encounters an else statement.
+//This function aggregates the operations in an else block to a list of operations. This is used to differentiate operations
+//in the if block and the else block (as Antlr still doesn't allow us to know where the tokens are located).
 func (n *NopListener) ExitElseStatement(ctx *parser.ElseStatementContext) {
 	elseBlockOperationCount := len(ctx.AllOperation())
 	elseBlock := make([]Operation, elseBlockOperationCount)
@@ -319,6 +371,9 @@ func (n *NopListener) ExitElseStatement(ctx *parser.ElseStatementContext) {
 	n.stack.Push(elseBlock)
 }
 
+//ExitMatchStatement : A function that is intended to be called by Antlr when it encounters a match statement.
+//This function aggregates a list of match candidates. It also has the condition that is actually used to match against these
+//candidates.
 func (n *NopListener) ExitMatchStatement(ctx *parser.MatchStatementContext) {
 	matchCandidateCount := len(ctx.AllMatchCandidate())
 	matchCandidates := make([]MatchCandidate, matchCandidateCount)
@@ -332,6 +387,10 @@ func (n *NopListener) ExitMatchStatement(ctx *parser.MatchStatementContext) {
 	})
 }
 
+//ExitMatchCandidate : A function that is intended to be called by Antlr when it encounters a match candidate.
+//(A branch inside match)
+//This aggregates the list of operations that should be ran if the candidate matches with the condition and the candidate to
+//match.
 func (n *NopListener) ExitMatchCandidate(ctx *parser.MatchCandidateContext) {
 	operationCount := len(ctx.AllOperation())
 	operations := make([]Operation, operationCount)
@@ -345,6 +404,10 @@ func (n *NopListener) ExitMatchCandidate(ctx *parser.MatchCandidateContext) {
 	})
 }
 
+//ExitStatement : A function that is intended to be called by Antlr when it encounters a statement.
+//A statement is anything that can be evaluated to a value (even if it's void).
+//This function therefore contains logic to handle every single type of tokens that could be valid and holds a LHS and RHS.
+//Some types of statements are handled in their respective function due to contextual difference.
 func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 	operationType := none
 	switch {
@@ -436,6 +499,8 @@ func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 	})
 }
 
+//ExitLiteral : A function that is intended to be called by Antlr when it encounters a literal.
+//This function reads the literal string and converts it into a statement that holds the literal value.
 func (n *NopListener) ExitLiteral(ctx *parser.LiteralContext) {
 	var value interface{}
 	var typeName string
@@ -479,6 +544,8 @@ func (n *NopListener) ExitLiteral(ctx *parser.LiteralContext) {
 	})
 }
 
+//ExitArrayInitializer : A function that is intended to be called by Antlr when it encounters an array initializer.
+//This function reads for the array size and their default initializer.
 func (n *NopListener) ExitArrayInitializer(ctx *parser.ArrayInitializerContext) {
 	var arraySize int
 	if ctx.NUMBER() != nil {
@@ -513,6 +580,8 @@ func (n *NopListener) ExitArrayInitializer(ctx *parser.ArrayInitializerContext) 
 	})
 }
 
+//ExitObjectInitializer : A function that is intended to be called by Antlr when it encounters an object initializer.
+//This function reads for the type of object to initialize and its default property values.
 func (n *NopListener) ExitObjectInitializer(ctx *parser.ObjectInitializerContext) {
 	arguments := make([]Statement, len(ctx.AllStatement())+1)
 	for i, v := range n.stack.PopN(len(ctx.AllStatement())) {
@@ -529,6 +598,8 @@ func (n *NopListener) ExitObjectInitializer(ctx *parser.ObjectInitializerContext
 	})
 }
 
+//ExitStructDecl : A function that is intended to be called by Antlr when it encounters a struct declaration.
+//It simply searches for a list of fields in the struct so typing could be done properly.
 func (n *NopListener) ExitStructDecl(ctx *parser.StructDeclContext) {
 	//Cap is set at the amount of struct var. There's at least that much anyway.
 	fieldNames := make([]string, 0, len(ctx.AllStructVar()))
@@ -554,6 +625,9 @@ func (n *NopListener) ExitStructDecl(ctx *parser.StructDeclContext) {
 	})
 }
 
+//ExitStructVar : A function that is intended to be called by Antlr when it encounters a struct variable.
+//This is a supporting function to ExitStructDecl() to make multiple identifiers having the same type possible.
+//(Antlr still doesn't allow inferring token location)
 func (n *NopListener) ExitStructVar(ctx *parser.StructVarContext) {
 	fieldType := n.stack.Pop().(VariableType)
 	identifiers := ctx.AllIDENTIFIER()
@@ -566,6 +640,9 @@ func (n *NopListener) ExitStructVar(ctx *parser.StructVarContext) {
 	n.stack.Push(len(identifiers))
 }
 
+//ExitImpl : A function that is intended to be called by Antlr when it encounters an implementation definition.
+//This removes functions from the top-level context and place it inside of a implementation struct to show that it's part of
+//an implementation only.
 func (n *NopListener) ExitImpl(ctx *parser.ImplContext) {
 	implCount := len(ctx.AllFunction())
 	functions := make([]FunctionDecl, implCount)
@@ -584,6 +661,9 @@ func (n *NopListener) ExitImpl(ctx *parser.ImplContext) {
 	})
 }
 
+//ExitTrait : A function that is intended to be called by Antlr when it encounters a trait declaration.
+//This function reads function headers that has been discovered and groups it under itself to show that it's a trait declaration
+//and not just an empty function.
 func (n *NopListener) ExitTrait(ctx *parser.TraitContext) {
 	headerCount := len(ctx.AllFunctionHeader())
 	functionHeaders := make([]FunctionDecl, headerCount)
@@ -597,6 +677,9 @@ func (n *NopListener) ExitTrait(ctx *parser.TraitContext) {
 	})
 }
 
+//ExitTypeIdentifier : A function that is intended to be called by Antlr when it encounters a (potentially mutable) type identifier.
+//This function simply sets mutable to true if it encounters a mutable type.
+//The main type processing is done in ExitConstantType().
 func (n *NopListener) ExitTypeIdentifier(ctx *parser.TypeIdentifierContext) {
 	if ctx.MUT() == nil {
 		return //Do nothing. It's already the correct type.
@@ -606,6 +689,10 @@ func (n *NopListener) ExitTypeIdentifier(ctx *parser.TypeIdentifierContext) {
 	n.stack.Push(toMutateType)
 }
 
+//ExitConstantType : A function that is intended to be called by Antlr when it encounters a non-mutable type identifier.
+//This function figures out the type of an object by recursively adding onto it.
+//Types are set to be mutable in ExitTypeIdentifier().
+//They are separated into two functions to enforce mutability rules in the grammar file.
 func (n *NopListener) ExitConstantType(ctx *parser.ConstantTypeContext) {
 	if ctx.STAR() != nil {
 		pointedToType := n.stack.Pop().(VariableType)
