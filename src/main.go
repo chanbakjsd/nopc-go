@@ -25,7 +25,7 @@ func main() {
 		flags.OutputLocation = strings.TrimSuffix(files[0], ".nop")
 	}
 	flags.DebugPrint("Output file location: " + flags.OutputLocation)
-	astTree := generateAST(parsedTree)
+	astTree := ast.GenerateAST(parsedTree)
 	if flags.EmitAST {
 		for _, v := range astTree {
 			ast.PrettyPrintASTToFile(v)
