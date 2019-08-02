@@ -1,0 +1,3281 @@
+{
+	"Source": "testdata/complex.nop",
+	"CompilerPragma": [
+		"#compilerPragmaA",
+		"#compilerPragmaB",
+		"#compilerPragmaC",
+		"#FailAfterASTGeneration"
+	],
+	"Import": [
+		"packageA",
+		"packageB",
+		"packageC"
+	],
+	"Structs": [
+		{
+			"Public": false,
+			"Name": "a",
+			"FieldNames": [
+				"p",
+				"q",
+				"r"
+			],
+			"FieldTypes": [
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "i64",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				}
+			]
+		},
+		{
+			"Public": true,
+			"Name": "b",
+			"FieldNames": [
+				"a",
+				"b",
+				"c",
+				"d",
+				"e",
+				"f"
+			],
+			"FieldTypes": [
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "f32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "f32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "f32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				}
+			]
+		}
+	],
+	"Traits": [
+		{
+			"Name": "c",
+			"Functions": [
+				{
+					"Name": "whatAreYouTalkingAbout",
+					"Parameters": [
+						{
+							"Name": "e",
+							"Type": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "f",
+							"Type": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "d",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						}
+					],
+					"ReturnType": {
+						"Name": "ustring",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": null
+				},
+				{
+					"Name": "noOpThx",
+					"Parameters": [],
+					"ReturnType": {
+						"Name": "",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": null
+				}
+			]
+		}
+	],
+	"Impls": [
+		{
+			"TraitName": "c",
+			"TypeName": {
+				"Name": "a",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Implementations": [
+				{
+					"Name": "whatAreYouTalkingAbout",
+					"Parameters": [
+						{
+							"Name": "e",
+							"Type": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "f",
+							"Type": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "d",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						}
+					],
+					"ReturnType": {
+						"Name": "ustring",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": [
+						{
+							"Type": "[ReturnStatement]",
+							"Actual": {
+								"Type": "[Literal]",
+								"ResolvedType": {
+									"Name": "ustring",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "I am cute",
+								"Arguments": null
+							}
+						}
+					]
+				},
+				{
+					"Name": "noOpThx",
+					"Parameters": [],
+					"ReturnType": {
+						"Name": "",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": []
+				}
+			]
+		}
+	],
+	"Globals": [
+		{
+			"Targets": [
+				{
+					"Name": "d",
+					"Type": {
+						"Name": "",
+						"ToInferType": true,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"DefaultValue": {
+				"Type": "[Literal]",
+				"ResolvedType": {
+					"Name": "i64",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				"LiteralValue": 3,
+				"Arguments": null
+			},
+			"IsConstant": false
+		},
+		{
+			"Targets": [
+				{
+					"Name": "e",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "f",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "g",
+					"Type": {
+						"Name": "f64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"DefaultValue": {
+				"Type": "[Property]",
+				"ResolvedType": {
+					"Name": "",
+					"ToInferType": true,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				"LiteralValue": null,
+				"Arguments": [
+					{
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "packageA",
+						"Arguments": null
+					},
+					{
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "someMysteriousFunction",
+						"Arguments": null
+					}
+				]
+			},
+			"IsConstant": false
+		}
+	],
+	"Constants": [
+		{
+			"Targets": [
+				{
+					"Name": "h",
+					"Type": {
+						"Name": "",
+						"ToInferType": true,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "i",
+					"Type": {
+						"Name": "",
+						"ToInferType": true,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "j",
+					"Type": {
+						"Name": "",
+						"ToInferType": true,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"DefaultValue": {
+				"Type": "[Property]",
+				"ResolvedType": {
+					"Name": "",
+					"ToInferType": true,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				"LiteralValue": null,
+				"Arguments": [
+					{
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "packageB",
+						"Arguments": null
+					},
+					{
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "iDareYouChangeUs",
+						"Arguments": null
+					}
+				]
+			},
+			"IsConstant": true
+		}
+	],
+	"Functions": [
+		{
+			"Name": "main",
+			"Parameters": [],
+			"ReturnType": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "x",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Literal]",
+							"ResolvedType": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": 3,
+							"Arguments": null
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "y",
+								"Type": {
+									"Name": "i64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Literal]",
+							"ResolvedType": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": 5,
+							"Arguments": null
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "a",
+								"Type": {
+									"Name": "i64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							},
+							{
+								"Name": "b",
+								"Type": {
+									"Name": "i64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							},
+							{
+								"Name": "c",
+								"Type": {
+									"Name": "f64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Property]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "packageA",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "someMysteriousFunction",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[IfStatement]",
+					"Actual": {
+						"Condition": {
+							"Type": "\u003e",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 0,
+									"Arguments": null
+								}
+							]
+						},
+						"IfBlock": [
+							{
+								"Type": "[EvaluatedStatement]",
+								"Actual": {
+									"Type": "[FunctionCall]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Property]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "packageB",
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "largerThanZero",
+													"Arguments": null
+												}
+											]
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "a",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						],
+						"ElseBlock": []
+					}
+				},
+				{
+					"Type": "[IfStatement]",
+					"Actual": {
+						"Condition": {
+							"Type": "\u003e",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 0,
+									"Arguments": null
+								}
+							]
+						},
+						"IfBlock": [
+							{
+								"Type": "[EvaluatedStatement]",
+								"Actual": {
+									"Type": "[FunctionCall]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Property]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "packageB",
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "largerThanZero",
+													"Arguments": null
+												}
+											]
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "b",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						],
+						"ElseBlock": [
+							{
+								"Type": "[EvaluatedStatement]",
+								"Actual": {
+									"Type": "[FunctionCall]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Property]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "packageB",
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "smallerThanZero",
+													"Arguments": null
+												}
+											]
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "b",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"Type": "[MatchStatement]",
+					"Actual": {
+						"Condition": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "c",
+							"Arguments": null
+						},
+						"Candidate": [
+							{
+								"Condition": {
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "f64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 3,
+									"Arguments": null
+								},
+								"RunBlock": [
+									{
+										"Type": "[EvaluatedStatement]",
+										"Actual": {
+											"Type": "[FunctionCall]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Property]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": [
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "packageB",
+															"Arguments": null
+														},
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "largerThanZero",
+															"Arguments": null
+														}
+													]
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "c",
+													"Arguments": null
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"Condition": {
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "f64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 2,
+									"Arguments": null
+								},
+								"RunBlock": [
+									{
+										"Type": "[EvaluatedStatement]",
+										"Actual": {
+											"Type": "[FunctionCall]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Property]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": [
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "packageA",
+															"Arguments": null
+														},
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "yay",
+															"Arguments": null
+														}
+													]
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "c",
+													"Arguments": null
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"Condition": {
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "f64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 1,
+									"Arguments": null
+								},
+								"RunBlock": [
+									{
+										"Type": "[EvaluatedStatement]",
+										"Actual": {
+											"Type": "[FunctionCall]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Property]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": [
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "packageB",
+															"Arguments": null
+														},
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "iRanOutOfFunctionNames",
+															"Arguments": null
+														}
+													]
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "c",
+													"Arguments": null
+												}
+											]
+										}
+									},
+									{
+										"Type": "[EvaluatedStatement]",
+										"Actual": {
+											"Type": "[FunctionCall]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Property]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": [
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "packageB",
+															"Arguments": null
+														},
+														{
+															"Type": "[PropertyName]",
+															"ResolvedType": {
+																"Name": "",
+																"ToInferType": true,
+																"InnerType": null,
+																"Public": false,
+																"Static": false,
+																"Mutable": false
+															},
+															"LiteralValue": "iAmStillRunningOutOfFunctionName",
+															"Arguments": null
+														}
+													]
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "a",
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "b",
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "c",
+													"Arguments": null
+												}
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "y",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Literal]",
+							"ResolvedType": {
+								"Name": "i64",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": 9,
+							"Arguments": null
+						}
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "allBooleanOperators",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "x",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "y",
+								"Arguments": null
+							}
+						]
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "allMathOperators",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "x",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "y",
+								"Arguments": null
+							}
+						]
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "allMiscIdentifiers",
+						"Arguments": null
+					}
+				}
+			]
+		},
+		{
+			"Name": "allBooleanOperators",
+			"Parameters": [
+				{
+					"Name": "a",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "b",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"ReturnType": {
+				"Name": "bool",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "k",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "==",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "l",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "!=",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "m",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "\u003c",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "n",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "\u003e",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "o",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "\u003c=",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "p",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "\u003e=",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[Property]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": null,
+								"Arguments": [
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "packageB",
+										"Arguments": null
+									},
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "dealWithThese",
+										"Arguments": null
+									}
+								]
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "l",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "m",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "n",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "o",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "p",
+								"Arguments": null
+							}
+						]
+					}
+				},
+				{
+					"Type": "[ReturnStatement]",
+					"Actual": {
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "k",
+						"Arguments": null
+					}
+				}
+			]
+		},
+		{
+			"Name": "allMathOperators",
+			"Parameters": [
+				{
+					"Name": "a",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
+					"Name": "b",
+					"Type": {
+						"Name": "i64",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"ReturnType": {
+				"Name": "i64",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "q",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Addition]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "r",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Subtraction]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "s",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Multiplication]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "t",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Division]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "u",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Modulus]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "q",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Addition]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "q",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "r",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Subtraction]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "r",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "s",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Multiplication]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "s",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "a",
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "t",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Division]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "t",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "u",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[Modulus]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "u",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[Property]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": null,
+								"Arguments": [
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "packageB",
+										"Arguments": null
+									},
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "dealWithThese",
+										"Arguments": null
+									}
+								]
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "q",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "r",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "s",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "t",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "u",
+								"Arguments": null
+							}
+						]
+					}
+				},
+				{
+					"Type": "[ReturnStatement]",
+					"Actual": {
+						"Type": "[PropertyName]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": true,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": "q",
+						"Arguments": null
+					}
+				}
+			]
+		},
+		{
+			"Name": "allMiscIdentifiers",
+			"Parameters": [],
+			"ReturnType": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "v",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[PointerAccess]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Dereference]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Self]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": null
+										}
+									]
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "x",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "v",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[ArrayInitializer]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Type]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 0,
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[Assignment]",
+					"Actual": {
+						"Target": {
+							"Type": "[PropertyName]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": "v",
+							"Arguments": null
+						},
+						"Source": {
+							"Type": "[ArrayInitializer]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Type]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 4,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": true,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": false,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": false,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "bool",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": true,
+									"Arguments": null
+								}
+							]
+						}
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "w",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[ObjectInitializer]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Type]",
+									"ResolvedType": {
+										"Name": "a",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "ustring",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "b",
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "ustring",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "c",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "x",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[ArrayAccessor]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "v",
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 0,
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				}
+			]
+		},
+		{
+			"Name": "allTypeModifiers",
+			"Parameters": [
+				{
+					"Name": "b",
+					"Type": {
+						"Name": "Array",
+						"ToInferType": false,
+						"InnerType": {
+							"Name": "Pointer",
+							"ToInferType": false,
+							"InnerType": {
+								"Name": "Array",
+								"ToInferType": false,
+								"InnerType": {
+									"Name": "Array",
+									"ToInferType": false,
+									"InnerType": {
+										"Name": "Array",
+										"ToInferType": false,
+										"InnerType": {
+											"Name": "Pointer",
+											"ToInferType": false,
+											"InnerType": {
+												"Name": "Pointer",
+												"ToInferType": false,
+												"InnerType": {
+													"Name": "generalType",
+													"ToInferType": false,
+													"InnerType": {
+														"Name": "bool",
+														"ToInferType": false,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"Public": false,
+													"Static": false,
+													"Mutable": false
+												},
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"Public": false,
+						"Static": false,
+						"Mutable": true
+					}
+				},
+				{
+					"Name": "a",
+					"Type": {
+						"Name": "Pointer",
+						"ToInferType": false,
+						"InnerType": {
+							"Name": "Pointer",
+							"ToInferType": false,
+							"InnerType": {
+								"Name": "Pointer",
+								"ToInferType": false,
+								"InnerType": {
+									"Name": "Pointer",
+									"ToInferType": false,
+									"InnerType": {
+										"Name": "Array",
+										"ToInferType": false,
+										"InnerType": {
+											"Name": "Pointer",
+											"ToInferType": false,
+											"InnerType": {
+												"Name": "Array",
+												"ToInferType": false,
+												"InnerType": {
+													"Name": "bool",
+													"ToInferType": false,
+													"InnerType": null,
+													"Public": false,
+													"Static": false,
+													"Mutable": false
+												},
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				}
+			],
+			"ReturnType": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": []
+		}
+	]
+}

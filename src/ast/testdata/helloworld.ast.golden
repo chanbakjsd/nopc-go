@@ -1,0 +1,69 @@
+{
+	"Source": "testdata/helloworld.nop",
+	"CompilerPragma": [],
+	"Import": null,
+	"Structs": null,
+	"Traits": null,
+	"Impls": null,
+	"Globals": null,
+	"Constants": null,
+	"Functions": [
+		{
+			"Name": "main",
+			"Parameters": [],
+			"ReturnType": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "println",
+								"Arguments": null
+							},
+							{
+								"Type": "[Literal]",
+								"ResolvedType": {
+									"Name": "ustring",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "Hello World!",
+								"Arguments": null
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,7 @@
+//This is what Hello World would look like in Noplang.
+//I would really question life if something breaks the compilation of this file.
+//Maybe you should if you are the person who broke compilation of this file.
+
+fn main() {
+	println("Hello World!")
+}

@@ -1,0 +1,2 @@
+//This file just has one invalid token and this comment which is dropped by Antlr.
+iAmNotAToken_UnderscoreIsToMakeSureIt'sNotMistakenAsAnIdentifier

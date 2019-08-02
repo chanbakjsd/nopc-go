@@ -1,0 +1,45 @@
+// unclear
+#no_std
+#no_auto_free
+
+// unclear
+import strconv
+
+struct Point {
+    pub x, y i32 // Types don't matter in antlr files for now
+}
+
+fn main() {
+    // change to dot if no double colon
+    let pointA = Point.new(123, 456)
+
+    let mut pointB = pointA.clone()
+    pointB.translate(5, 3)
+    if pointB.x < 100 {
+        println("Should never execute")
+    } else {
+        println("Should always execute")
+    }
+    println(pointB) //(128, 459)
+}
+
+impl Point {
+    fn new(x, y i32) Point {
+        return Point{x, y}
+    }
+    fn translate(*mut self, x, y i32) {
+        self->x += x
+        self->y += y
+    }
+}
+
+impl Stringable for Point {
+    fn string(*mut self) string {
+         return "(" + strconv.Atoi(self->x) + ", " + strconv.Atoi(self->y) + ")"
+    }
+}
+
+//In internal compiler files
+trait Stringable {
+    fn string() string
+}

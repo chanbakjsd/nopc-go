@@ -1,0 +1,107 @@
+//This file should contain all possible Nop AST constructs that can be crammed into one file.
+//Obviously it won't be a reasonable file. Do not take this as a guideline on how to write Nop code.
+
+#compilerPragmaA
+#compilerPragmaB
+#compilerPragmaC
+#FailAfterASTGeneration
+
+import (
+	packageA, packageB, packageC
+)
+
+struct a {
+	pub p i32,
+	q i32, pub r i64
+}
+pub struct b {
+	a, b, c i32,
+	d, e, f f32
+}
+
+trait c {
+	fn whatAreYouTalkingAbout(d i32, e, f i64) ustring
+	fn noOpThx()
+}
+
+impl c for a {
+	fn whatAreYouTalkingAbout(d i32, e, f i64) ustring {
+		return "I am cute"
+	}
+	fn noOpThx() {
+	}
+}
+
+let d = 3
+let (e, f i64, g f64) = packageA.someMysteriousFunction()
+
+const (h, i, j) = packageB.iDareYouChangeUs() //Compilation error if h, i or j is modified
+
+fn main() {
+	let x = 3
+	let y i64 = 5
+	let (a, b i64, c f64) = packageA.someMysteriousFunction()
+	if a > 0 {
+		packageB.largerThanZero(a)
+	}
+	if b > 0 {
+		packageB.largerThanZero(b)
+	} else {
+		packageB.smallerThanZero(b)
+	}
+	match c {
+		3.0 -> packageB.largerThanZero(c)
+		2.0 -> packageA.yay(c)
+		1.0 -> {
+			packageB.iRanOutOfFunctionNames(c)
+			packageB.iAmStillRunningOutOfFunctionName(a, b, c)
+		}
+	}
+	y = 9
+	allBooleanOperators(x, y)
+	allMathOperators(x, y)
+	allMiscIdentifiers()
+}
+
+fn allBooleanOperators(a, b i64) bool {
+	//Input is 3, 9
+	//Yes. Everything in this block is allowed. Don't do it though. It's unreadable code.
+	let k = a == b //false
+	let l = a != b //true
+	let m = a < b //true
+	let n = a > b //false
+	let o = a <= b //true
+	let p = a >= b //false
+	packageB.dealWithThese(l, m, n, o, p)
+	return k
+}
+
+fn allMathOperators(a, b i64) i64 {
+	let q = a+b
+	let r = a-b
+	let s = a*b
+	let t = a/b
+	let u = a%b
+	q += a
+	r -= b
+	s *= a
+	t /= b
+	u %= b
+	packageB.dealWithThese(q, r, s, t, u)
+	return q
+}
+
+fn allMiscIdentifiers() {
+	//This block of code would not build because some part of it does not belong in global scope.
+	//It'll still parse to AST though and that's all that matters.
+	let v = *self->x
+	v = [0]bool
+	v = []bool{true, false, false, true}
+	let w = a{"b", "c"}
+	let x = v[0]
+}
+
+fn allTypeModifiers(a ****[]*[]bool, b mut []*[][][]**generalType<bool>) {
+	//Everything is in the function header :)
+	//If you do any of the types in it in real life, I'll personally hunt you down.
+}

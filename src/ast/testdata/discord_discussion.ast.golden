@@ -1,0 +1,1227 @@
+{
+	"Source": "testdata/discord_discussion.nop",
+	"CompilerPragma": [
+		"#no_std",
+		"#no_auto_free"
+	],
+	"Import": [
+		"strconv"
+	],
+	"Structs": [
+		{
+			"Public": false,
+			"Name": "Point",
+			"FieldNames": [
+				"x",
+				"y"
+			],
+			"FieldTypes": [
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				},
+				{
+					"Name": "i32",
+					"ToInferType": false,
+					"InnerType": null,
+					"Public": false,
+					"Static": false,
+					"Mutable": false
+				}
+			]
+		}
+	],
+	"Traits": [
+		{
+			"Name": "Stringable",
+			"Functions": [
+				{
+					"Name": "string",
+					"Parameters": [],
+					"ReturnType": {
+						"Name": "string",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": null
+				}
+			]
+		}
+	],
+	"Impls": [
+		{
+			"TraitName": "Point",
+			"TypeName": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Implementations": [
+				{
+					"Name": "new",
+					"Parameters": [
+						{
+							"Name": "x",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "y",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						}
+					],
+					"ReturnType": {
+						"Name": "Point",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": [
+						{
+							"Type": "[ReturnStatement]",
+							"Actual": {
+								"Type": "[ObjectInitializer]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": null,
+								"Arguments": [
+									{
+										"Type": "[Type]",
+										"ResolvedType": {
+											"Name": "Point",
+											"ToInferType": false,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": null,
+										"Arguments": null
+									},
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "x",
+										"Arguments": null
+									},
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "y",
+										"Arguments": null
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"Name": "translate",
+					"Parameters": [
+						{
+							"Name": "x",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "y",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
+							"Name": "self",
+							"Type": {
+								"Name": "self",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": true
+							}
+						}
+					],
+					"ReturnType": {
+						"Name": "",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": [
+						{
+							"Type": "[Assignment]",
+							"Actual": {
+								"Target": {
+									"Type": "[PointerAccess]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Self]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "x",
+											"Arguments": null
+										}
+									]
+								},
+								"Source": {
+									"Type": "[Addition]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PointerAccess]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Self]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": false,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "x",
+													"Arguments": null
+												}
+											]
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "x",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						},
+						{
+							"Type": "[Assignment]",
+							"Actual": {
+								"Target": {
+									"Type": "[PointerAccess]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[Self]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "y",
+											"Arguments": null
+										}
+									]
+								},
+								"Source": {
+									"Type": "[Addition]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PointerAccess]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": null,
+											"Arguments": [
+												{
+													"Type": "[Self]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": false,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": null,
+													"Arguments": null
+												},
+												{
+													"Type": "[PropertyName]",
+													"ResolvedType": {
+														"Name": "",
+														"ToInferType": true,
+														"InnerType": null,
+														"Public": false,
+														"Static": false,
+														"Mutable": false
+													},
+													"LiteralValue": "y",
+													"Arguments": null
+												}
+											]
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "y",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"TraitName": "Stringable",
+			"TypeName": {
+				"Name": "Point",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Implementations": [
+				{
+					"Name": "string",
+					"Parameters": [
+						{
+							"Name": "self",
+							"Type": {
+								"Name": "self",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": true
+							}
+						}
+					],
+					"ReturnType": {
+						"Name": "string",
+						"ToInferType": false,
+						"InnerType": null,
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					},
+					"Body": [
+						{
+							"Type": "[ReturnStatement]",
+							"Actual": {
+								"Type": "[Addition]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": null,
+								"Arguments": [
+									{
+										"Type": "[Addition]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": null,
+										"Arguments": [
+											{
+												"Type": "[Addition]",
+												"ResolvedType": {
+													"Name": "",
+													"ToInferType": true,
+													"InnerType": null,
+													"Public": false,
+													"Static": false,
+													"Mutable": false
+												},
+												"LiteralValue": null,
+												"Arguments": [
+													{
+														"Type": "[Addition]",
+														"ResolvedType": {
+															"Name": "",
+															"ToInferType": true,
+															"InnerType": null,
+															"Public": false,
+															"Static": false,
+															"Mutable": false
+														},
+														"LiteralValue": null,
+														"Arguments": [
+															{
+																"Type": "[Literal]",
+																"ResolvedType": {
+																	"Name": "ustring",
+																	"ToInferType": false,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": "(",
+																"Arguments": null
+															},
+															{
+																"Type": "[FunctionCall]",
+																"ResolvedType": {
+																	"Name": "",
+																	"ToInferType": false,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": null,
+																"Arguments": [
+																	{
+																		"Type": "[Property]",
+																		"ResolvedType": {
+																			"Name": "",
+																			"ToInferType": true,
+																			"InnerType": null,
+																			"Public": false,
+																			"Static": false,
+																			"Mutable": false
+																		},
+																		"LiteralValue": null,
+																		"Arguments": [
+																			{
+																				"Type": "[PropertyName]",
+																				"ResolvedType": {
+																					"Name": "",
+																					"ToInferType": true,
+																					"InnerType": null,
+																					"Public": false,
+																					"Static": false,
+																					"Mutable": false
+																				},
+																				"LiteralValue": "strconv",
+																				"Arguments": null
+																			},
+																			{
+																				"Type": "[PropertyName]",
+																				"ResolvedType": {
+																					"Name": "",
+																					"ToInferType": true,
+																					"InnerType": null,
+																					"Public": false,
+																					"Static": false,
+																					"Mutable": false
+																				},
+																				"LiteralValue": "Atoi",
+																				"Arguments": null
+																			}
+																		]
+																	},
+																	{
+																		"Type": "[PointerAccess]",
+																		"ResolvedType": {
+																			"Name": "",
+																			"ToInferType": true,
+																			"InnerType": null,
+																			"Public": false,
+																			"Static": false,
+																			"Mutable": false
+																		},
+																		"LiteralValue": null,
+																		"Arguments": [
+																			{
+																				"Type": "[Self]",
+																				"ResolvedType": {
+																					"Name": "",
+																					"ToInferType": false,
+																					"InnerType": null,
+																					"Public": false,
+																					"Static": false,
+																					"Mutable": false
+																				},
+																				"LiteralValue": null,
+																				"Arguments": null
+																			},
+																			{
+																				"Type": "[PropertyName]",
+																				"ResolvedType": {
+																					"Name": "",
+																					"ToInferType": true,
+																					"InnerType": null,
+																					"Public": false,
+																					"Static": false,
+																					"Mutable": false
+																				},
+																				"LiteralValue": "x",
+																				"Arguments": null
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													},
+													{
+														"Type": "[Literal]",
+														"ResolvedType": {
+															"Name": "ustring",
+															"ToInferType": false,
+															"InnerType": null,
+															"Public": false,
+															"Static": false,
+															"Mutable": false
+														},
+														"LiteralValue": ", ",
+														"Arguments": null
+													}
+												]
+											},
+											{
+												"Type": "[FunctionCall]",
+												"ResolvedType": {
+													"Name": "",
+													"ToInferType": false,
+													"InnerType": null,
+													"Public": false,
+													"Static": false,
+													"Mutable": false
+												},
+												"LiteralValue": null,
+												"Arguments": [
+													{
+														"Type": "[Property]",
+														"ResolvedType": {
+															"Name": "",
+															"ToInferType": true,
+															"InnerType": null,
+															"Public": false,
+															"Static": false,
+															"Mutable": false
+														},
+														"LiteralValue": null,
+														"Arguments": [
+															{
+																"Type": "[PropertyName]",
+																"ResolvedType": {
+																	"Name": "",
+																	"ToInferType": true,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": "strconv",
+																"Arguments": null
+															},
+															{
+																"Type": "[PropertyName]",
+																"ResolvedType": {
+																	"Name": "",
+																	"ToInferType": true,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": "Atoi",
+																"Arguments": null
+															}
+														]
+													},
+													{
+														"Type": "[PointerAccess]",
+														"ResolvedType": {
+															"Name": "",
+															"ToInferType": true,
+															"InnerType": null,
+															"Public": false,
+															"Static": false,
+															"Mutable": false
+														},
+														"LiteralValue": null,
+														"Arguments": [
+															{
+																"Type": "[Self]",
+																"ResolvedType": {
+																	"Name": "",
+																	"ToInferType": false,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": null,
+																"Arguments": null
+															},
+															{
+																"Type": "[PropertyName]",
+																"ResolvedType": {
+																	"Name": "",
+																	"ToInferType": true,
+																	"InnerType": null,
+																	"Public": false,
+																	"Static": false,
+																	"Mutable": false
+																},
+																"LiteralValue": "y",
+																"Arguments": null
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"Type": "[Literal]",
+										"ResolvedType": {
+											"Name": "ustring",
+											"ToInferType": false,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": ")",
+										"Arguments": null
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"Globals": null,
+	"Constants": null,
+	"Functions": [
+		{
+			"Name": "main",
+			"Parameters": [],
+			"ReturnType": {
+				"Name": "",
+				"ToInferType": false,
+				"InnerType": null,
+				"Public": false,
+				"Static": false,
+				"Mutable": false
+			},
+			"Body": [
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "pointA",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[FunctionCall]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Property]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "Point",
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "new",
+											"Arguments": null
+										}
+									]
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 123,
+									"Arguments": null
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 456,
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[VariableDecl]",
+					"Actual": {
+						"Targets": [
+							{
+								"Name": "pointB",
+								"Type": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": true
+								}
+							}
+						],
+						"DefaultValue": {
+							"Type": "[Property]",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "pointA",
+									"Arguments": null
+								},
+								{
+									"Type": "[PropertyName]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": "clone",
+									"Arguments": null
+								}
+							]
+						},
+						"IsConstant": false
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[Property]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": null,
+								"Arguments": [
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "pointB",
+										"Arguments": null
+									},
+									{
+										"Type": "[PropertyName]",
+										"ResolvedType": {
+											"Name": "",
+											"ToInferType": true,
+											"InnerType": null,
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"LiteralValue": "translate",
+										"Arguments": null
+									}
+								]
+							},
+							{
+								"Type": "[Literal]",
+								"ResolvedType": {
+									"Name": "i64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": 5,
+								"Arguments": null
+							},
+							{
+								"Type": "[Literal]",
+								"ResolvedType": {
+									"Name": "i64",
+									"ToInferType": false,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": 3,
+								"Arguments": null
+							}
+						]
+					}
+				},
+				{
+					"Type": "[IfStatement]",
+					"Actual": {
+						"Condition": {
+							"Type": "\u003c",
+							"ResolvedType": {
+								"Name": "",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"LiteralValue": null,
+							"Arguments": [
+								{
+									"Type": "[Property]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": true,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "pointB",
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "x",
+											"Arguments": null
+										}
+									]
+								},
+								{
+									"Type": "[Literal]",
+									"ResolvedType": {
+										"Name": "i64",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": 100,
+									"Arguments": null
+								}
+							]
+						},
+						"IfBlock": [
+							{
+								"Type": "[EvaluatedStatement]",
+								"Actual": {
+									"Type": "[FunctionCall]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "println",
+											"Arguments": null
+										},
+										{
+											"Type": "[Literal]",
+											"ResolvedType": {
+												"Name": "ustring",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "Should never execute",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						],
+						"ElseBlock": [
+							{
+								"Type": "[EvaluatedStatement]",
+								"Actual": {
+									"Type": "[FunctionCall]",
+									"ResolvedType": {
+										"Name": "",
+										"ToInferType": false,
+										"InnerType": null,
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "println",
+											"Arguments": null
+										},
+										{
+											"Type": "[Literal]",
+											"ResolvedType": {
+												"Name": "ustring",
+												"ToInferType": false,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "Should always execute",
+											"Arguments": null
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"Type": "[EvaluatedStatement]",
+					"Actual": {
+						"Type": "[FunctionCall]",
+						"ResolvedType": {
+							"Name": "",
+							"ToInferType": false,
+							"InnerType": null,
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "println",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "pointB",
+								"Arguments": null
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}
