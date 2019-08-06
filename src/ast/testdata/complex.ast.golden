@@ -118,6 +118,17 @@
 					"Name": "whatAreYouTalkingAbout",
 					"Parameters": [
 						{
+							"Name": "d",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
 							"Name": "e",
 							"Type": {
 								"Name": "i64",
@@ -132,17 +143,6 @@
 							"Name": "f",
 							"Type": {
 								"Name": "i64",
-								"ToInferType": false,
-								"InnerType": null,
-								"Public": false,
-								"Static": false,
-								"Mutable": false
-							}
-						},
-						{
-							"Name": "d",
-							"Type": {
-								"Name": "i32",
 								"ToInferType": false,
 								"InnerType": null,
 								"Public": false,
@@ -193,6 +193,17 @@
 					"Name": "whatAreYouTalkingAbout",
 					"Parameters": [
 						{
+							"Name": "d",
+							"Type": {
+								"Name": "i32",
+								"ToInferType": false,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							}
+						},
+						{
 							"Name": "e",
 							"Type": {
 								"Name": "i64",
@@ -207,17 +218,6 @@
 							"Name": "f",
 							"Type": {
 								"Name": "i64",
-								"ToInferType": false,
-								"InnerType": null,
-								"Public": false,
-								"Static": false,
-								"Mutable": false
-							}
-						},
-						{
-							"Name": "d",
-							"Type": {
-								"Name": "i32",
 								"ToInferType": false,
 								"InnerType": null,
 								"Public": false,
@@ -3140,6 +3140,66 @@
 			"Name": "allTypeModifiers",
 			"Parameters": [
 				{
+					"Name": "a",
+					"Type": {
+						"Name": "Pointer",
+						"ToInferType": false,
+						"InnerType": {
+							"Name": "Pointer",
+							"ToInferType": false,
+							"InnerType": {
+								"Name": "Pointer",
+								"ToInferType": false,
+								"InnerType": {
+									"Name": "Pointer",
+									"ToInferType": false,
+									"InnerType": {
+										"Name": "Array",
+										"ToInferType": false,
+										"InnerType": {
+											"Name": "Pointer",
+											"ToInferType": false,
+											"InnerType": {
+												"Name": "Array",
+												"ToInferType": false,
+												"InnerType": {
+													"Name": "bool",
+													"ToInferType": false,
+													"InnerType": null,
+													"Public": false,
+													"Static": false,
+													"Mutable": false
+												},
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"Public": false,
+											"Static": false,
+											"Mutable": false
+										},
+										"Public": false,
+										"Static": false,
+										"Mutable": false
+									},
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"Public": false,
+								"Static": false,
+								"Mutable": false
+							},
+							"Public": false,
+							"Static": false,
+							"Mutable": false
+						},
+						"Public": false,
+						"Static": false,
+						"Mutable": false
+					}
+				},
+				{
 					"Name": "b",
 					"Type": {
 						"Name": "Array",
@@ -3204,66 +3264,6 @@
 						"Public": false,
 						"Static": false,
 						"Mutable": true
-					}
-				},
-				{
-					"Name": "a",
-					"Type": {
-						"Name": "Pointer",
-						"ToInferType": false,
-						"InnerType": {
-							"Name": "Pointer",
-							"ToInferType": false,
-							"InnerType": {
-								"Name": "Pointer",
-								"ToInferType": false,
-								"InnerType": {
-									"Name": "Pointer",
-									"ToInferType": false,
-									"InnerType": {
-										"Name": "Array",
-										"ToInferType": false,
-										"InnerType": {
-											"Name": "Pointer",
-											"ToInferType": false,
-											"InnerType": {
-												"Name": "Array",
-												"ToInferType": false,
-												"InnerType": {
-													"Name": "bool",
-													"ToInferType": false,
-													"InnerType": null,
-													"Public": false,
-													"Static": false,
-													"Mutable": false
-												},
-												"Public": false,
-												"Static": false,
-												"Mutable": false
-											},
-											"Public": false,
-											"Static": false,
-											"Mutable": false
-										},
-										"Public": false,
-										"Static": false,
-										"Mutable": false
-									},
-									"Public": false,
-									"Static": false,
-									"Mutable": false
-								},
-								"Public": false,
-								"Static": false,
-								"Mutable": false
-							},
-							"Public": false,
-							"Static": false,
-							"Mutable": false
-						},
-						"Public": false,
-						"Static": false,
-						"Mutable": false
 					}
 				}
 			],

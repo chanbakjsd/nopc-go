@@ -164,6 +164,17 @@
 					"Name": "translate",
 					"Parameters": [
 						{
+							"Name": "self",
+							"Type": {
+								"Name": "self",
+								"ToInferType": true,
+								"InnerType": null,
+								"Public": false,
+								"Static": false,
+								"Mutable": true
+							}
+						},
+						{
 							"Name": "x",
 							"Type": {
 								"Name": "i32",
@@ -183,17 +194,6 @@
 								"Public": false,
 								"Static": false,
 								"Mutable": false
-							}
-						},
-						{
-							"Name": "self",
-							"Type": {
-								"Name": "self",
-								"ToInferType": true,
-								"InnerType": null,
-								"Public": false,
-								"Static": false,
-								"Mutable": true
 							}
 						}
 					],

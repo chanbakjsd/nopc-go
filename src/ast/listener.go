@@ -211,11 +211,18 @@ func (n *NopListener) ExitFunctionHeader(ctx *parser.FunctionHeaderContext) {
 	functionParameters := make([]FunctionParameter, 0)
 	for i := 0; i < len(ctx.AllFunctionParameter()); i++ {
 		count := n.stack.Pop().(int)
-		poppedParam := n.stack.PopN(count)
 		for j := 0; j < count; j++ {
-			functionParameters = append(functionParameters, poppedParam[j].(FunctionParameter))
+			poppedParam := n.stack.Pop()
+			functionParameters = append(functionParameters, poppedParam.(FunctionParameter))
 		}
 	}
+
+	//Reverses the array. Stack is first in last out.
+	for i := 0; i < len(functionParameters)/2; i++ {
+		flippedID := len(functionParameters) - i - 1
+		functionParameters[i], functionParameters[flippedID] = functionParameters[flippedID], functionParameters[i]
+	}
+
 	n.stack.Push(FunctionDecl{
 		Name:       ctx.IDENTIFIER().GetText(),
 		Parameters: functionParameters,
