@@ -2850,7 +2850,7 @@
 									"Type": "[Dereference]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -2862,7 +2862,7 @@
 											"Type": "[Self]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -2911,7 +2911,7 @@
 							"Type": "[ArrayInitializer]",
 							"ResolvedType": {
 								"Name": "",
-								"ToInferType": false,
+								"ToInferType": true,
 								"InnerType": null,
 								"Public": false,
 								"Static": false,
@@ -2969,7 +2969,7 @@
 							"Type": "[ArrayInitializer]",
 							"ResolvedType": {
 								"Name": "",
-								"ToInferType": false,
+								"ToInferType": true,
 								"InnerType": null,
 								"Public": false,
 								"Static": false,
@@ -3078,7 +3078,7 @@
 						"DefaultValue": {
 							"Type": "[ObjectInitializer]",
 							"ResolvedType": {
-								"Name": "",
+								"Name": "a",
 								"ToInferType": false,
 								"InnerType": null,
 								"Public": false,

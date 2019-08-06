@@ -431,6 +431,9 @@ func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 	case ctx.SELF() != nil:
 		n.stack.Push(Statement{
 			Type: Self,
+			ResolvedType: VariableType{
+				ToInferType: true,
+			},
 		})
 		return
 	case ctx.IDENTIFIER() != nil:
@@ -462,7 +465,10 @@ func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 		if len(ctx.AllStatement()) == 1 {
 			pointer := n.stack.Pop().(Statement)
 			n.stack.Push(Statement{
-				Type:      Dereference,
+				Type: Dereference,
+				ResolvedType: VariableType{
+					ToInferType: true,
+				},
 				Arguments: []Statement{pointer},
 			})
 			return
@@ -591,7 +597,10 @@ func (n *NopListener) ExitArrayInitializer(ctx *parser.ArrayInitializerContext) 
 		ResolvedType: n.stack.Pop().(VariableType),
 	}
 	n.stack.Push(Statement{
-		Type:      ArrayInitializer,
+		Type: ArrayInitializer,
+		ResolvedType: VariableType{
+			ToInferType: true,
+		},
 		Arguments: arguments,
 	})
 }
@@ -609,8 +618,10 @@ func (n *NopListener) ExitObjectInitializer(ctx *parser.ObjectInitializerContext
 		ResolvedType: objectType,
 	}
 	n.stack.Push(Statement{
-		Type:      ObjectInitializer,
-		Arguments: arguments,
+		Type: ObjectInitializer,
+		//We already know that object type is being initialized. No point in making the compiler infer it.
+		ResolvedType: objectType,
+		Arguments:    arguments,
 	})
 }
 

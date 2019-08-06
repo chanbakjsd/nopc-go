@@ -107,7 +107,7 @@
 							"Actual": {
 								"Type": "[ObjectInitializer]",
 								"ResolvedType": {
-									"Name": "",
+									"Name": "Point",
 									"ToInferType": false,
 									"InnerType": null,
 									"Public": false,
@@ -225,7 +225,7 @@
 											"Type": "[Self]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -277,7 +277,7 @@
 													"Type": "[Self]",
 													"ResolvedType": {
 														"Name": "",
-														"ToInferType": false,
+														"ToInferType": true,
 														"InnerType": null,
 														"Public": false,
 														"Static": false,
@@ -337,7 +337,7 @@
 											"Type": "[Self]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -389,7 +389,7 @@
 													"Type": "[Self]",
 													"ResolvedType": {
 														"Name": "",
-														"ToInferType": false,
+														"ToInferType": true,
 														"InnerType": null,
 														"Public": false,
 														"Static": false,
@@ -600,7 +600,7 @@
 																				"Type": "[Self]",
 																				"ResolvedType": {
 																					"Name": "",
-																					"ToInferType": false,
+																					"ToInferType": true,
 																					"InnerType": null,
 																					"Public": false,
 																					"Static": false,
@@ -711,7 +711,7 @@
 																"Type": "[Self]",
 																"ResolvedType": {
 																	"Name": "",
-																	"ToInferType": false,
+																	"ToInferType": true,
 																	"InnerType": null,
 																	"Public": false,
 																	"Static": false,
