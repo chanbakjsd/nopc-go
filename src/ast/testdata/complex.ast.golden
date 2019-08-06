@@ -25,7 +25,7 @@
 					"Name": "i32",
 					"ToInferType": false,
 					"InnerType": null,
-					"Public": false,
+					"Public": true,
 					"Static": false,
 					"Mutable": false
 				},
@@ -41,7 +41,7 @@
 					"Name": "i64",
 					"ToInferType": false,
 					"InnerType": null,
-					"Public": false,
+					"Public": true,
 					"Static": false,
 					"Mutable": false
 				}

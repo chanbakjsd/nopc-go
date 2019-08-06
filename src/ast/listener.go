@@ -630,6 +630,9 @@ func (n *NopListener) ExitStructDecl(ctx *parser.StructDeclContext) {
 //(Antlr still doesn't allow inferring token location)
 func (n *NopListener) ExitStructVar(ctx *parser.StructVarContext) {
 	fieldType := n.stack.Pop().(VariableType)
+	if ctx.PUB() != nil {
+		fieldType.Public = true
+	}
 	identifiers := ctx.AllIDENTIFIER()
 	for _, v := range identifiers {
 		n.stack.Push(Variable{
