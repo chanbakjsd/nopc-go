@@ -536,7 +536,7 @@
 																"Type": "[FunctionCall]",
 																"ResolvedType": {
 																	"Name": "",
-																	"ToInferType": false,
+																	"ToInferType": true,
 																	"InnerType": null,
 																	"Public": false,
 																	"Static": false,
@@ -647,7 +647,7 @@
 												"Type": "[FunctionCall]",
 												"ResolvedType": {
 													"Name": "",
-													"ToInferType": false,
+													"ToInferType": true,
 													"InnerType": null,
 													"Public": false,
 													"Static": false,
@@ -795,7 +795,7 @@
 							"Type": "[FunctionCall]",
 							"ResolvedType": {
 								"Name": "",
-								"ToInferType": false,
+								"ToInferType": true,
 								"InnerType": null,
 								"Public": false,
 								"Static": false,
@@ -891,7 +891,7 @@
 							}
 						],
 						"DefaultValue": {
-							"Type": "[Property]",
+							"Type": "[FunctionCall]",
 							"ResolvedType": {
 								"Name": "",
 								"ToInferType": true,
@@ -903,7 +903,7 @@
 							"LiteralValue": null,
 							"Arguments": [
 								{
-									"Type": "[PropertyName]",
+									"Type": "[Property]",
 									"ResolvedType": {
 										"Name": "",
 										"ToInferType": true,
@@ -912,21 +912,35 @@
 										"Static": false,
 										"Mutable": false
 									},
-									"LiteralValue": "pointA",
-									"Arguments": null
-								},
-								{
-									"Type": "[PropertyName]",
-									"ResolvedType": {
-										"Name": "",
-										"ToInferType": true,
-										"InnerType": null,
-										"Public": false,
-										"Static": false,
-										"Mutable": false
-									},
-									"LiteralValue": "clone",
-									"Arguments": null
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "pointA",
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "clone",
+											"Arguments": null
+										}
+									]
 								}
 							]
 						},
@@ -939,7 +953,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,
@@ -1093,7 +1107,7 @@
 									"Type": "[FunctionCall]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -1138,7 +1152,7 @@
 									"Type": "[FunctionCall]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -1184,7 +1198,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,

@@ -419,18 +419,8 @@ func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 	operationType := none
 	switch {
 	case ctx.LPAREN() != nil:
-		statementCount := len(ctx.AllStatement())
-		if statementCount != 1 {
-			//We don't need to do anything if it's just a bracketed statement
-			arguments := make([]Statement, statementCount)
-			for i, v := range n.stack.PopN(statementCount) {
-				arguments[i] = v.(Statement)
-			}
-			n.stack.Push(Statement{
-				Type:      FunctionCall,
-				Arguments: arguments,
-			})
-		}
+		//We don't need to do anything if it's just a bracketed statement
+		//Function calls are handled in ExitFunctionParameters()
 		return
 	case ctx.Literal() != nil:
 		return //These are all handled in their own code blocks so they're no-op in this block
@@ -503,6 +493,25 @@ func (n *NopListener) ExitStatement(ctx *parser.StatementContext) {
 			ToInferType: true,
 		},
 		Arguments: []Statement{left, right},
+	})
+}
+
+//ExitFunctionParameters : A function that is intended to be called by Antlr when it encounters function parameters.
+//This function is separated from statement to differentiate between a function call without any arguments and a bracketed statement.
+func (n *NopListener) ExitFunctionParameters(ctx *parser.FunctionParametersContext) {
+	statementCount := len(ctx.AllStatement())
+	arguments := make([]Statement, statementCount+1)
+	for i, v := range n.stack.PopN(statementCount) {
+		arguments[i+1] = v.(Statement)
+	}
+	functionToCall := n.stack.Pop().(Statement)
+	arguments[0] = functionToCall
+	n.stack.Push(Statement{
+		Type: FunctionCall,
+		ResolvedType: VariableType{
+			ToInferType: true,
+		},
+		Arguments: arguments,
 	})
 }
 

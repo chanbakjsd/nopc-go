@@ -336,7 +336,7 @@
 				}
 			],
 			"DefaultValue": {
-				"Type": "[Property]",
+				"Type": "[FunctionCall]",
 				"ResolvedType": {
 					"Name": "",
 					"ToInferType": true,
@@ -348,7 +348,7 @@
 				"LiteralValue": null,
 				"Arguments": [
 					{
-						"Type": "[PropertyName]",
+						"Type": "[Property]",
 						"ResolvedType": {
 							"Name": "",
 							"ToInferType": true,
@@ -357,21 +357,35 @@
 							"Static": false,
 							"Mutable": false
 						},
-						"LiteralValue": "packageA",
-						"Arguments": null
-					},
-					{
-						"Type": "[PropertyName]",
-						"ResolvedType": {
-							"Name": "",
-							"ToInferType": true,
-							"InnerType": null,
-							"Public": false,
-							"Static": false,
-							"Mutable": false
-						},
-						"LiteralValue": "someMysteriousFunction",
-						"Arguments": null
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "packageA",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "someMysteriousFunction",
+								"Arguments": null
+							}
+						]
 					}
 				]
 			},
@@ -416,7 +430,7 @@
 				}
 			],
 			"DefaultValue": {
-				"Type": "[Property]",
+				"Type": "[FunctionCall]",
 				"ResolvedType": {
 					"Name": "",
 					"ToInferType": true,
@@ -428,7 +442,7 @@
 				"LiteralValue": null,
 				"Arguments": [
 					{
-						"Type": "[PropertyName]",
+						"Type": "[Property]",
 						"ResolvedType": {
 							"Name": "",
 							"ToInferType": true,
@@ -437,21 +451,35 @@
 							"Static": false,
 							"Mutable": false
 						},
-						"LiteralValue": "packageB",
-						"Arguments": null
-					},
-					{
-						"Type": "[PropertyName]",
-						"ResolvedType": {
-							"Name": "",
-							"ToInferType": true,
-							"InnerType": null,
-							"Public": false,
-							"Static": false,
-							"Mutable": false
-						},
-						"LiteralValue": "iDareYouChangeUs",
-						"Arguments": null
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "packageB",
+								"Arguments": null
+							},
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "iDareYouChangeUs",
+								"Arguments": null
+							}
+						]
 					}
 				]
 			},
@@ -574,7 +602,7 @@
 							}
 						],
 						"DefaultValue": {
-							"Type": "[Property]",
+							"Type": "[FunctionCall]",
 							"ResolvedType": {
 								"Name": "",
 								"ToInferType": true,
@@ -586,7 +614,7 @@
 							"LiteralValue": null,
 							"Arguments": [
 								{
-									"Type": "[PropertyName]",
+									"Type": "[Property]",
 									"ResolvedType": {
 										"Name": "",
 										"ToInferType": true,
@@ -595,21 +623,35 @@
 										"Static": false,
 										"Mutable": false
 									},
-									"LiteralValue": "packageA",
-									"Arguments": null
-								},
-								{
-									"Type": "[PropertyName]",
-									"ResolvedType": {
-										"Name": "",
-										"ToInferType": true,
-										"InnerType": null,
-										"Public": false,
-										"Static": false,
-										"Mutable": false
-									},
-									"LiteralValue": "someMysteriousFunction",
-									"Arguments": null
+									"LiteralValue": null,
+									"Arguments": [
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "packageA",
+											"Arguments": null
+										},
+										{
+											"Type": "[PropertyName]",
+											"ResolvedType": {
+												"Name": "",
+												"ToInferType": true,
+												"InnerType": null,
+												"Public": false,
+												"Static": false,
+												"Mutable": false
+											},
+											"LiteralValue": "someMysteriousFunction",
+											"Arguments": null
+										}
+									]
 								}
 							]
 						},
@@ -666,7 +708,7 @@
 									"Type": "[FunctionCall]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -784,7 +826,7 @@
 									"Type": "[FunctionCall]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -856,7 +898,7 @@
 									"Type": "[FunctionCall]",
 									"ResolvedType": {
 										"Name": "",
-										"ToInferType": false,
+										"ToInferType": true,
 										"InnerType": null,
 										"Public": false,
 										"Static": false,
@@ -961,7 +1003,7 @@
 											"Type": "[FunctionCall]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -1048,7 +1090,7 @@
 											"Type": "[FunctionCall]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -1135,7 +1177,7 @@
 											"Type": "[FunctionCall]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -1205,7 +1247,7 @@
 											"Type": "[FunctionCall]",
 											"ResolvedType": {
 												"Name": "",
-												"ToInferType": false,
+												"ToInferType": true,
 												"InnerType": null,
 												"Public": false,
 												"Static": false,
@@ -1337,7 +1379,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,
@@ -1393,7 +1435,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,
@@ -1446,7 +1488,7 @@
 				{
 					"Type": "[EvaluatedStatement]",
 					"Actual": {
-						"Type": "[PropertyName]",
+						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
 							"ToInferType": true,
@@ -1455,8 +1497,22 @@
 							"Static": false,
 							"Mutable": false
 						},
-						"LiteralValue": "allMiscIdentifiers",
-						"Arguments": null
+						"LiteralValue": null,
+						"Arguments": [
+							{
+								"Type": "[PropertyName]",
+								"ResolvedType": {
+									"Name": "",
+									"ToInferType": true,
+									"InnerType": null,
+									"Public": false,
+									"Static": false,
+									"Mutable": false
+								},
+								"LiteralValue": "allMiscIdentifiers",
+								"Arguments": null
+							}
+						]
 					}
 				}
 			]
@@ -1856,7 +1912,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,
@@ -2616,7 +2672,7 @@
 						"Type": "[FunctionCall]",
 						"ResolvedType": {
 							"Name": "",
-							"ToInferType": false,
+							"ToInferType": true,
 							"InnerType": null,
 							"Public": false,
 							"Static": false,

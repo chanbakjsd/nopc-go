@@ -51,7 +51,7 @@ statement
 | STAR statement
 | SELF
 | statement (DOT | RARROW) statement
-| statement LPAREN (statement (COMMA statement)*)? RPAREN
+| statement LPAREN functionParameters RPAREN
 | statement EQUAL EQUAL statement
 | statement EXCLAMATION EQUAL statement
 | statement LESSERTHAN (EQUAL)? statement
@@ -62,6 +62,8 @@ statement
 | arrayInitializer
 | objectInitializer
 ;
+
+functionParameters: (statement (COMMA statement)*)?;
 
 literal
 : STRING
